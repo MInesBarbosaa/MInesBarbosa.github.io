@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Ines Barbosa Portfolio</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <h1>Hello my name is <span>Inês Barbosa</span> <br> I'm a Web Developer</h1>
-            <a href="#about">Find out More</a>
+            <h1>Hello my name is <span class="heading-highlight">Inês Barbosa</span> <br> I'm a Web Developer</h1>
+            <a href="#about" class="button">Find out More</a>
         </header>
         <main>
-            <section id="about">
+            <section id="about" class="about">
                 <h2>About Me</h2>
-                <div>
-                    <img src="me.png" alt="a photograph of Inês.">
+                <div class="about-container">
+                    <img src="me.png" class="about-img" alt="a photograph of Inês.">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget rhoncus ex. Aliquam a mauris nisl. Proin finibus velit sit amet orci tempus varius. In hac habitasse platea dictumst. Sed est enim, lacinia eu dictum a, iaculis eget lorem. Aenean auctor non libero ac gravida. Fusce posuere, lorem ac eleifend scelerisque, tortor augue elementum leo, sit amet porttitor metus purus id justo.</p>
-                    <a href="#">My Resume</a>
-                    <blockquote>
-                        "I'm amazing"
-                        <cite>- Me</cite>
-                    </blockquote>
+                    <a href="#">My Resume</a>   
                 </div>
+                <blockquote>
+                    "I'm amazing"
+                    <cite>- Me</cite>
+                </blockquote>
             </section>
             <section>
                 <h2>Projects</h2>
@@ -45,6 +47,20 @@
                     <img src="https://victorious-curvy-bookcase.glitch.me/images/project.jpg" alt="A graphic illustration of a crane on a truck lifting a webpage"> 
                 </article>
             </section>
+            <section>
+                <h2>Contact</h2>
+                <p>Something work with me</p>
+                <a href="mailto:inesbarbosa.ma@gmail.com">Let's talk!</a>
+            </section>
+            <footer>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+                <p>&copy; 2022 - Portfolio design by Inês Barbosa</p>
+            </footer>
         </main>
     </body>
 </html>
