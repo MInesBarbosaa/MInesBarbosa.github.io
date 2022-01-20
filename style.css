@@ -31,22 +31,49 @@ h2 {
     text-transform: uppercase;
 }
 
+h3 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.neutral-theme {
+    background-color: white;
+    --button-color: var(--primary);
+    --button-hover-color: white;
+}
+
+/* for areas that have a background color, what is defined next is applied */
+
+.primary-theme {
+    color: white;
+    background-color: var(--primary);
+    --button-color: white;
+    --button-hover-color: var(--primary);
+}
+
 .heading-highlight {
     color: var(--primary); /*instead of red */
 }
 
 .button {
+    display: inline-block;
+    width: max-content;
     padding: 1rem;
-    border: 2px solid var(--primary); /*instead of red */
+    border: 2px solid var(--button-color); /*instead of red */
     font-weight: bold;
     text-decoration: none; /* Removes the underline */
-    color: var(--primary); /*instead of red */
+    color: var(--button-color); /*instead of red */
 }
 
-.about {
+.button:hover {
+    color: var(--button-hover-color);
+    background-color: var(--button-color); /* change the color of the button when the user passes the mouse over it */
+}
+
+
+section {
     padding: var(--spacing);
-    color: white;
-    background-color: var(--primary);
 }
 
 .about-container {
@@ -55,6 +82,22 @@ h2 {
 }
 
 .about-img {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto var(--spacing);
+    filter: grayscale(100%);
+}
+
+/* fill the space available until 350px are achieved
+by default img are inline with text */
+
+.about-img:hover {
+    filter: grayscale(0%);
+}
+
+
+img {
     max-width: 350px;
 }
 
@@ -62,6 +105,108 @@ p {
     margin-bottom: 1em;
     line-height: 1.4em;
 }
+
+.about-text {
+    text-align: justify;
+}
+
+blockquote {
+    margin-top: var(--spacing);
+    font-size: 2rem;
+    font-style: italic;
+    text-align: center;
+}
+
+cite {
+    display: block; /* force it to go to a new line */
+    margin-top: 1rem; /* give a bit a margin so it does not touch the cote*/
+    font-size: 1rem;
+    font-style: normal;
+}
+
+article {
+    display: flex; /* allows to display two bock inlin */
+    flex-direction: column-reverse; /* in this case if the page becomes lower, the img will appear first than the text */
+}
+
+.article-img {
+    margin-bottom: 2rem;
+}
+
+.contact {
+    text-align: center;
+}
+
+footer {
+    padding: var(--spacing);
+    text-align: center;
+    color: white;
+    background-color: #333;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing);
+    gap: 4rem;
+}
+
+/* use grid-gap (gap) instead of margin to separete the elements */
+
+.social-link {
+    display: block;
+    width: 60px;
+    height: 60px;
+    font-size: 0px;
+    color: transparent;
+    background: no-repeat;
+    background-size: 60px;
+    opacity: .5;
+    transform: scale(1);
+    /* transition: all 0.3s ease-in-out;   this can also be put in here */
+}
+
+/*.social-link:hover {
+    opacity: 1;
+}*/
+
+.social-link:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.linkedin {
+    background-image: url(https://victorious-curvy-bookcase.glitch.me/images/linkedin.svg);
+}
+
+.twitter {
+    background-image: url(https://victorious-curvy-bookcase.glitch.me/images/twitter.svg);
+}
+
+.github {
+    background-image: url(https://victorious-curvy-bookcase.glitch.me/images/github.svg);
+}
+
+.youtube {
+    background-image: url(https://victorious-curvy-bookcase.glitch.me/images/youtube.svg);
+}
+
+.about {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.about::after {
+    content: ''; /* To work, this needs to have the content, but it can be nothing which is defined as '' */
+    position: absolute;  /* we can apply a r,l,b or t position to define where we want to position this */
+    right: 0;
+    bottom: -100px;  /* we want to position this below 100 px of its relative */
+    width: 0;
+    height: 0;
+    border-top: 100px solid var(--primary);
+    border-right: 100vw solid transparent;
+}
+
 
 /*  Responsive Design -> when the size of the page modify, our text can change as well*/ 
 
@@ -74,3 +219,26 @@ p {
 }
 
 */
+
+/*  when the browser is above 800 px */
+@media (min-width: 800px) {
+    .about-container {
+        display: flex;
+    }
+}
+
+.about-text {
+    margin-left: var(--spacing);
+}
+
+article {
+    flex-direction: row;
+    max-width: 960px;
+    margin: 0 auto var(--spacing);  
+}
+
+.article-img {
+    margin-left: 2em; /* put space between two things */
+    object-fit: cover;  /* Stops that the img gets too lower or too bigger when the size of the page modifies, avoid changes the aspect ratio of the img */
+}
+
