@@ -1,6 +1,9 @@
 :root { /* useful when there is a style that repeats several times along the document */
     --primary: rgb(70, 118, 180); /*allows to quickly change the color of all elements that are defined with this variable  */
+    --secundary:rgb(19, 73, 134);
+    --max-width: 960px;
     --spacing: 4rem;
+    --img-width: 350px;
 }
 
 body {
@@ -18,17 +21,22 @@ header {
 
 h1 {
     margin-bottom: 2rem;
-    font-size: 5vw;
+    font-size: clamp(3rem, 5vw, 200rem);
+    /* font-size: 5vw; */
     font-weight: bold;
     line-height: 1.4 em;
+    color: var(--secundary);
 }
 
 h2 {
     margin-bottom: var(--spacing);
     text-align: center;
-    font-size: 3vw;
+    /* font-size: 3vw; */
+    font-size: clamp(3rem, 3vw, 200rem);
     font-weight: bold;
     text-transform: uppercase;
+    line-height: 1.4 em;
+    /* color: var(--secundary); */
 }
 
 h3 {
@@ -135,8 +143,23 @@ article {
 }
 
 .contact {
+    /* position: relative; */
+    margin-top: 100px;
     text-align: center;
 }
+
+/*
+.contact::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid var(--primary);
+    border-left: 100vw solid transparent;
+}
+*/
 
 footer {
     padding: var(--spacing);
@@ -209,6 +232,8 @@ footer {
 }
 
 
+
+
 /*  Responsive Design -> when the size of the page modify, our text can change as well*/ 
 
 /*Mobile Design
@@ -242,4 +267,3 @@ article {
     margin-left: 2em; /* put space between two things */
     object-fit: cover;  /* Stops that the img gets too lower or too bigger when the size of the page modifies, avoid changes the aspect ratio of the img */
 }
-
